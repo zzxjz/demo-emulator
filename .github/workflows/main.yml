@@ -1,0 +1,49 @@
+name: Windows Go Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-windows:
+    name: Build on Windows
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21' # 根据您的需要调整Go版本
+
+    - name: Install TDM-GCC (64-bit)
+      run: |
+        # 下载并安装TDM-GCC
+        $url = "https://github.com/jmeubank/tdm-gcc/releases/download/v10.3.0-tdm64-2/tdm64-gcc-10.3.0-2.exe"
+        $output = "tdm-gcc-installer.exe"
+        Invoke-WebRequest -Uri $url -OutFile $output
+        Start-Process -FilePath $output -Args "/S" -Wait
+        # 将GCC添加到PATH
+        $gccPath = "C:\TDM-GCC-64\bin"
+        echo "C:\TDM-GCC-64\bin" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
+
+    - name: Verify GCC installation
+      run: gcc --version
+
+    - name: Build Go application
+      run: |
+        # 使用go get下载并构建项目
+        go get -u github.com/drhelius/demo-emulator
+        # 进入项目目录并构建
+        cd $env:GOPATH\src\github.com\drhelius\demo-emulator
+        go build -o demo-emulator.exe
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: demo-emulator-windows
+        path: ${{ env.GOPATH }}/src/github.com/drhelius/demo-emulator/demo-emulator.exe
