@@ -19,6 +19,7 @@ jobs:
       uses: actions/setup-go@v4
       with:
         go-version: '1.21' # 根据您的需要调整Go版本
+      id: go
 
     - name: Install TDM-GCC (64-bit)
       run: |
@@ -34,16 +35,20 @@ jobs:
     - name: Verify GCC installation
       run: gcc --version
 
-    - name: Build Go application
+    - name: Create Go module and build
       run: |
-        # 使用go get下载并构建项目
-        go get -u github.com/drhelius/demo-emulator
-        # 进入项目目录并构建
-        cd $env:GOPATH\src\github.com\drhelius\demo-emulator
-        go build -o demo-emulator.exe
+        # 创建临时目录并初始化Go模块
+        New-Item -ItemType Directory -Path "build" -Force
+        Set-Location -Path "build"
+        go mod init temp-build
+        # 使用go install而不是go get来安装和构建
+        go install github.com/drhelius/demo-emulator@latest
+        # 复制生成的可执行文件到工作目录
+        Copy-Item "$env:GOPATH\bin\demo-emulator.exe" -Destination "../demo-emulator.exe"
+        Set-Location -Path ".."
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: demo-emulator-windows
-        path: ${{ env.GOPATH }}/src/github.com/drhelius/demo-emulator/demo-emulator.exe
+        path: demo-emulator.exe
