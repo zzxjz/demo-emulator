@@ -1,11 +1,11 @@
 package mbcs
 
 import (
-	"github.com/drhelius/demo-emulator/gb/cpu"
-	"github.com/drhelius/demo-emulator/gb/input"
-	"github.com/drhelius/demo-emulator/gb/mapper"
-	"github.com/drhelius/demo-emulator/gb/util"
-	"github.com/drhelius/demo-emulator/gb/video"
+	"github.com/zzxjz/demo-emulator/gb/cpu"
+	"github.com/zzxjz/demo-emulator/gb/input"
+	"github.com/zzxjz/demo-emulator/gb/mapper"
+	"github.com/zzxjz/demo-emulator/gb/util"
+	"github.com/zzxjz/demo-emulator/gb/video"
 )
 
 // ReadIO returns the values of the special IO registers
