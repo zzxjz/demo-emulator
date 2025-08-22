@@ -1,8 +1,8 @@
 package input
 
 import (
-	"github.com/drhelius/demo-emulator/gb/cpu"
-	"github.com/drhelius/demo-emulator/gb/util"
+	"github.com/zzxjz/demo-emulator/gb/cpu"
+	"github.com/zzxjz/demo-emulator/gb/util"
 )
 
 var (
