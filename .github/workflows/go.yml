@@ -28,11 +28,19 @@ jobs:
     - name: Verify GCC
       run: gcc --version
 
+    # Go依赖安装
+    - name: Install Go dependencies
+      run: |
+        go get github.com/go-gl/glfw/v3.3/glfw@latest
+        go get github.com/go-gl/gl/v2.1/gl@latest
+
     - name: ini 末端
       run: go mod init github.com/zzxjz/demo-emulator
 
     - name: Build
-      run: go build -o demo-emulator.exe
+      run: |
+        go mod tidy
+        go build -o demo-emulator.exe
       env:
         CGO_ENABLED: 1
 
