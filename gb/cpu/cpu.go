@@ -1,6 +1,6 @@
 package cpu
 
-import "github.com/drhelius/demo-emulator/gb/mapper"
+import "github.com/zzxjz/demo-emulator/gb/mapper"
 
 // Interrupt types
 const (
