@@ -5,8 +5,8 @@ import (
 	"log"
 	"runtime"
 
-	"github.com/drhelius/demo-emulator/gb/core"
-	"github.com/drhelius/demo-emulator/gb/util"
+	"github.com/zzxjz/demo-emulator/gb/core"
+	"github.com/zzxjz/demo-emulator/gb/util"
 	"github.com/go-gl/glfw/v3.2/glfw"
 )
 
