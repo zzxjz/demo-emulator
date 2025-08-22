@@ -28,6 +28,9 @@ jobs:
     - name: Verify GCC
       run: gcc --version
 
+    - name: ini 末端
+      run: go mod init github.com/zzxjz/demo-emulator
+
     - name: Build
       run: go build -o demo-emulator.exe
       env:
