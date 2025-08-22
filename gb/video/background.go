@@ -1,6 +1,6 @@
 package video
 
-import "github.com/drhelius/demo-emulator/gb/util"
+import "github.com/zzxjz/demo-emulator/gb/util"
 
 func renderBG(line uint8) {
 	lcdc := mem.GetMemoryMap()[0xFF40]
