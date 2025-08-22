@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/drhelius/demo-emulator/gb/cpu"
-	"github.com/drhelius/demo-emulator/gb/input"
-	"github.com/drhelius/demo-emulator/gb/mapper"
-	"github.com/drhelius/demo-emulator/gb/mbcs"
-	"github.com/drhelius/demo-emulator/gb/util"
-	"github.com/drhelius/demo-emulator/gb/video"
+	"github.com/zzxjz/demo-emulator/gb/cpu"
+	"github.com/zzxjz/demo-emulator/gb/input"
+	"github.com/zzxjz/demo-emulator/gb/mapper"
+	"github.com/zzxjz/demo-emulator/gb/mbcs"
+	"github.com/zzxjz/demo-emulator/gb/util"
+	"github.com/zzxjz/demo-emulator/gb/video"
 )
 
 var pallete = [12]uint8{
