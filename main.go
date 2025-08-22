@@ -4,10 +4,10 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/drhelius/demo-emulator/gb/core"
-	"github.com/drhelius/demo-emulator/gb/util"
-	"github.com/drhelius/demo-emulator/glfw"
-	"github.com/drhelius/demo-emulator/opengl"
+	"github.com/zzxjz/demo-emulator/gb/core"
+	"github.com/zzxjz/demo-emulator/gb/util"
+	"github.com/zzxjz/demo-emulator/glfw"
+	"github.com/zzxjz/demo-emulator/opengl"
 )
 
 var colorFrameBuffer [util.GbWidth * util.GbHeight * 4]uint8
