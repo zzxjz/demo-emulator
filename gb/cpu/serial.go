@@ -1,6 +1,6 @@
 package cpu
 
-import "github.com/drhelius/demo-emulator/gb/util"
+import "github.com/zzxjz/demo-emulator/gb/util"
 
 var (
 	serialBit    int
