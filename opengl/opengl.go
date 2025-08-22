@@ -3,7 +3,7 @@ package opengl
 import (
 	"fmt"
 
-	"github.com/drhelius/demo-emulator/gb/util"
+	"github.com/zzxjz/demo-emulator/gb/util"
 	"github.com/go-gl/gl/v2.1/gl"
 )
 
